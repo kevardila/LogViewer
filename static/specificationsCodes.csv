@@ -1,0 +1,249 @@
+Tag,FieldName,Description
+98,EncryptMethod,0 (Always unencrypted)
+108,HeartBtInt,Note same value used by both sides
+141,ResetSeqNumFlag,Indicates both sides of a FIX session should reset sequence numbers
+553,Username,Specifies a different username of userID to use for authentication (require inbound)
+554,Password,Note: minimal security exists without transport-level encryption
+925,NewPassword,Specifies a new password when required
+58,Text,Free format text string
+45,RefSeqNum,MsgSeqNum of rejected message
+371,RefTagID,The tag number of the FIX field being referenced
+372,RefMsgType,The MsgType of the FiX message being referenced
+373,SessionRejectReason,Code to identify reasion for a seassion-level Reject message
+7,BeginSeqNo,Message sequence number of first message in range to be resent
+16,EndSeqNo,Message sequence number of last message in range to be resent
+123,GapFillFlag,Indicates that the sequence reset message is replacing administrative or application message which will not be resent
+36,NewSeqNo,New sequence number
+112,TestReqID,Required when the heartbeat is the result of a test request message
+379,BusinessRejectRefID,"The value of the business-level ""ID"" field on the message being referenced. Required unless the corresponding ID field was not specified"
+380,BusinessRejectReason,Code to indentify reasion for a business message reject message. Code to identify reason for a business message reject message
+11,ClOrdId,Order cancel or cancel/Replace message using the last used ClOrdID will also be rejected
+41,OrigClOrdID,a FIX order is identified by either its current ClOrderId for each firm
+37,OrderID,a FIX order is identified by either its current ClOrderId for the whole system
+38,OrderQty,"Quantity ordered. This value represents the number of shares for equities or par, face or nominal value for fixed income instruments"
+111,MaxFloor,Specifies the disclosed volume on hidden/iceberg orders
+44,Price,"Required for all limit order types - not required for market orders, or yield based products"
+40,OrdType,Indicates the type of order
+59,TimeInForce,Indicates time in force techniques that are valid for the specified market segment. absence of this field indicates a day order
+236,Yield,Yield percentage - This is the Yield equivalent of the price. Price and Yield are mutually exclusive
+432,ExpireDate,Conditionally required if TimeInForce = GTD and expireTime is not specified
+126,ExpireTime,"Conditionally required if TimeInForce = ""Good till Date/Time"""
+1,Account,Specifies investor account
+18,ExecInst,"Instructions for orden handling. Note for an AON order, the minimum quantity field must be equal to the total quantity"
+54,Side,Side of the market (Buy or sell)
+1102,TriggerPrice,
+921,StartCash,"Used for the following repurchase orders, specifies the total value of the order"
+234,StipulationValue,Value for stipulations
+60,TransactTime,Time of order creation by trader. This field is nor processed by the exchange nor is it used as a mechanism to place an order at a future time 
+110,MinQty,Specifies the minimum fill quantity
+2679,OrderOwnershipIndicator,Change ownership of an order to specific party
+39,OrdStatus,Describes the current status of the order
+102,CxlRejReason,Code to identify reasion for cancel rejection
+434,CxlRejResponseTo,Identifies the type of request that a Cancel Reject is in response to
+790,OrdStatusReqID,"Optional, can be used to uniquely identify a specific order status request message"
+1373,MassActionType,Specifies the type of action requested
+1374,MassActionScope,Specifies the scope of the action
+1369,MassActionReportID,Unique Identifies for the Order Mass Action report
+1373,MassActionType,Specifies the type of mass action requested
+1375,MassActionResponses,Indicates the action taken by the counterparty order handling system as a result of the action request
+1376,MassActionRejectReasson,Indicates why order mass action request was rejected
+533,TotalAffectedOrders,Optional fiel used to indicate the total number of orders affected by the order mass action request
+17,ExecID,Unique identifier of execution message as assigned by the exchange
+150,ExecType,Type of execution being reported. Describes the specific executionRpt
+526,SecondaryClOrdID,Inthe case of mass quotes can be mapped 
+198,SecondaryOrderID,The previous exchange-generated unique orderID calue for a regular order provided then the orderID change
+1080,RefOrderID,The Id reference to the order being hit or taken.
+1081,RefOrderIDSource,Used to specify the source of the RefOrderID for the RFQ Quote
+6,AvgPx,Calculated average price for all fills on this order during the day
+14,CumQty,Total matched Quantity
+31,LastPx,Price of this fill
+32,LastQty,Quantity bought
+922,EndCash,For REPO/TTV/SBB orders only specifies the return value of the order
+20102,DirtyPrice,The dirty price for the order or fill (Only for fixed Income products trated by clean price)  
+63,SettlType,Indicates the order settlement period
+64,SettlDate,Specific date of trade settlement
+103,OrdRejReason,For optional use with ExcetType = 8 Code identify reason for order rejection
+151,LeavesQty,Quantities open for further execution if the ordStatus is cancelled.
+1623,FillYield,Yield percentage for this fill (Fixed income only)
+381,GrossTradeAmt,Total amount traded expressed in units of currency
+880,TrdMatchID,Identifier assigned by the trading system for a trade
+828,TrdType,Indicated the type of trade. If not specified on a fill it is a regular trade
+829,TrdSubType,If specified this indicates whether the tradr is on the buy or sell side of a fill
+824,TradeLegRefID,Reference to the TrdMatchID of an assocaited REPO/TTV/SBB trade at start and return date
+1057,AggressorIndicator,Used to identify whether the order initiator is an aggresor or nor in the trade
+574,MatchType,Indicates whether a fill was pre-arranged
+1138,DisplayQty,Indicates the current volume disclosed on a hidden/iceberg order
+520,ContAmtValue,Indicates the value balance for REPO orders
+797,CopyMsgIndicator,Drop Copy
+117,QuoteID,Unique identifier for quote
+296,NoQuoteSets,The numberof Sets of quotes in the message
+302,QuoteSetID,Identifier for the quote set
+304,TotNoQuoteEntries,Total number of quotes for the quote set across all messages. should be the sum of all noQuoteEntries in each messages.
+295,NoQuoteEntries,The number of quotes for this QuotSet that follow in this message
+299,QuoteEntryID,Unique identifier for the quote
+132,BidPx,Bid price/rate
+133,OfferPx,Offer price/rrate
+134,BidSize,Quantity of bid
+135,OfferSize,Quantity of offer
+62,ValidUntilTime,Indicates expiration time of quote
+297,QuoteStatus,Status of the mass quote acknowledgement
+300,QuoteRejectReason,Reason Quote was rejected
+893,LastFragment,Indicates whether this is the last fragment in the sequence of message fragments
+1167,QuoteEntryStatus,Status of quote entry action
+368,QuoteEntryRejectReason,Reason quote entry was rejected
+131,QuoteReqID,Unique identifier for quote request its an exchange generated id when the quote message is sent to participants
+146,NoRelatedSym,The number of sets of related symbols in request. Only value 1 is suported
+658,QuoteRequestRejectReason,Reason Quote was rejected
+632,BidYield,The bid yeld being provided by the quoter
+634,OfferYield,The offer yield being provided by the quoter
+298,QuoteCancelType,Identifies the type of quote cancel request. the following values are supported
+693,QuoteRespID,A unique identifier specified by initiator
+694,QuoteRespType,Type of response this quote repsonse is.
+571,TradeReportID,Unique client generated identifier for this trade capture report message
+487,TradeReportTransType,Identifies trade report message transaction type
+856,TradeReportType,Type of trade report
+552,NoSides,Number of sides in this message
+572,TradeReportRefID,The client tradeReportID being referenced
+573,MatchStatus,The status of this trade with respect to matching
+15,Currency,Currency of the trade
+75,TradeDate,Used for report trade date
+939,TrdRptStatus,Trade report status
+751,TradeReportRejectReason,Reason for rejection of trade report
+269,MDEntryType,Bid/Offer
+270,MDEntryPx,OrderPrice
+271,MDEntrySize,OrderQuantity
+272,MDEntryDate,Date and time the order was last update
+273,MDEntryTime,Date and time the order was last update
+278,MDEntryID,Order Identifier
+290,MDEntryPositionNo,Display position of bid/offer
+1025,FirstPx,For FI REPO and Equity orderbooks this is the repo price
+346,NumberOfOrders,Number of orders in the market
+279,MDUpdateAction,Indicates whether a trade is being matched cancelled or amended
+2446,AggressorSide,Which side was the aggressor in the trade
+1020,TradeVolume,Total number of shares traded today
+332,HighPx,52 week high
+333,LowPx,52 week low
+235,YieldType,Type of yield
+274,TickDirection,Movement indicator
+326,ScurityTradingStatus,Status of security
+451,NetChgPrevDay,Change from previous day
+262,MDReqID,Must be unique or the ID of previous market data request to disable
+263,SubscriptionRequestType,Indicates to other party what type of response is expected
+264,MarketDepth,Depth of market for book snapshot / incremetal updates
+265,MDUpdateType,Required if subscriptionsRequestType
+266,AggregatedBook,Specifies whether or not book entries should be aggregated
+267,NoMDEntryTypes,Number of MDEntryType fields requested
+281,MDReqRejReason,Reason for the rejection of a market data request
+911,TotNumReports,Total number of reports returned in reponse to a request
+1021,MDBookType,Describes the type of book for which the feed is intended. used when multiple feeds are provides over the same connection
+268,NoMDEntries,Number of entries following
+811,PriceDelta,Price change as a percentage
+335,TradSesReqID,Must be unique or the ID of previous market data request to disable
+336,TradingSessionID,Identifier for trading session
+340,TradSesStatus,State of the trading session
+567,TradSesStatusRejReason,"Use with tradSesStatus = ""Request rejected"""
+341,TradSesStartTime,Starting time of the trading session
+55,Symbol,The security for which trading session applies
+762,SecuritySubType,X-stream FIX customization. This field is used to specify board on which security is listed
+914,AgreementID,X-stream FIX customization. This field is used to specify instrument ID
+320,SecurityReqID,Unique ID for Security List request
+559,SecurityListRequestType,Type of security list requested being made 4 =  All securities
+322,SecurityResponseID,Identifier for the security list message
+393,TotNoRelatedSym,Used to indicate the total number of securities being returned for this request
+560,SecurityRequestResult,Result of the security resquest identified by the securityReqID
+711,NoUnderlyings,Number of underlyings
+1306,PriceLimitType,Describes the how the price limits are expressed
+1148,LowLimitPrice,Allowable low limit price for the trading day.
+1149,HighLimitPrice,Allowable high limit price for the trading.
+1150,TradingReferencePrice,Reference price of the security
+1305,SecondaryPriceLimitType,Describes the how the secondary price limirs are expressed
+1221,SecondaryLowLimitPrice,Allowable secondary low limit as a percetage from the last marked price
+1230,SecondayHighLimitPrice,Allowable secondary high limit as a percetage from the last marked price
+1205,NoTickRules,TickRules component block
+1206,StartTickPriceRange,Starting price range for specified tick increment
+1207,EndTickPriceRange,Ending price range for the specified tick increment
+1208,TickIncrement,Tick increment for stated price range.
+562,MinTradeVol,The minimum trading volume for a security
+1140,MaxTradeVol,The maximum order quantity that can be submitted for a security
+20103,MarketPriceType,Type of price with which a fixed income security is traded.
+2141,StrategyType,Strategy Indentifier
+404,LiquidityValue,MTP Value (Equities only)
+292,CorporateAction,Identifies the type of Corporate Action that triggered the update
+1324,ListUpdateAction,If provided then the instrument occurrence has explicity changed
+324,SecurityStatusReqID,Must be unique or the ID of previous security
+42,OrigTime,Time of message origination.
+61,Urgency,Urgency flag
+148,Headline,Specifies the headline text
+358,EncodedHeadlineLen,Byte length of encoded field
+359,EncodedHeadline,Encoded representation of the headline field in the encoded format especified via the messageEncoding field
+149,URLLink,A URL to additional information
+8,BeginString,FIX 4.4 (always unencrypted must be first field in message)
+9,BodyLength,(Always unencrypted must be second field in message)
+35,MsgType,(Always unencrypted must be second field in message)
+49,SenderCompID,(Always unencrypted must be second field in message)
+56,TargetCompID,(Always unencrypted must be second field in message)
+115,OnBehalfOfCompID,Trading partner company ID used when sending messages via a third
+116,OnBehalfOfSubID,Trading partner subID used when delivering messages via a third party
+144,OnBehalfOfLocationID,Trading partner LocationID used when sending messages via a third party
+128,DeliverToCompID,Trading partner company ID used when sending messages via a third party
+34,MsgSeqNum,(Can be embedded whithin encrypted data section)
+50,SenderSubID,Must be set by a client to identify the trader that is performing the action being sent to the exchange
+142,SenderLocationID,Sender's locationID
+57,TargetSubID,Set by the exchange to indicate the trader that performed an action
+143,TargetLocationID,Trading partner locationID
+129,DeliverToSubID,Trading partner used when delivering messages via a third party
+145,DeliverToLocationID,Trading partner locationID used when delivering messages via a third party
+43,PossDupFlag,Always required for retransmitted messages whether prompted by the sending system or as the result of a resend request
+97,PossResend,Required when mesage may be duplicate of another message sent under a different sequence number
+52,SendingTime,Can be embedded within encrypted data section
+122,OrigSendingTime,Required for message resent as a result of a resentRequest
+347,MessageEncoding,"Type of message encoding used in a message ""Encoded"" fields"
+369,LastMesgSeqNumProcessed,May be sent by the exchange on a logout message to indicate the last msgSeqNum
+10,CheckSum,(Always unencrypted must be second field in message)
+48,SecurityID,Unique marketplace assigned integer identifier for an order book
+22,SecurityIDSource,None
+106,Issuer,Issuer of security
+107,SecurityDesc,Optional textual description of the security
+167,SecurityType,Indicates type of security
+223,CouponRate,For fixed income
+224,CouponPaymentDate,Date interest is to be paid
+1946,CouponType,Coupon type of the bond
+1948,CouponFrequencyPeriod,Time unit factor for the frequency of the bonds coupon payment 
+1949,CouponFrequencyUnit,Time unit associated with the frequency of the bond coupon payment
+1950,CouponDayCount,The day count convetion used in interest calculations for a bond or an interest bearing security
+699,BenchmarkSecurityID,The identifier of the benchmark for a bond
+225,IssueDate,The date when a bond or stock offering is issued
+541,MaturityDate,Specifies the maturity date or expiry date of a option or the maturity date of a bond
+202,StrikePrice,Strike price for an option
+231,ContractMultiplier,Nominal multiplier
+201,PutOrCall,Indicates whether an option contract is a put or call
+228,Factor,Circuit braker adjustment factor
+1151,SecurityGroup,Board group identifier
+1940,AssetType,Security Category
+1687,ShortSaleRestriction,Indicates the current short sell status valid values
+454,NoSecurityAltID,Number of SecAltIDGrp fields. Always 1 if specified
+455,SecurityAltID,Alternate security identifier
+456,SecurityAltIDSource,Valud values: 4
+453,NoPartyIDs,Repeating group below should contain unique combinations of party partID PartyIDSource and partyRole
+448,PartyID,Used to identify source of partyID Required if parteIDSource is specified
+447,PartyIDSource,Used to identify class cource of partyID value.
+452,PartyRole,Identifies the type of partyID
+696,YieldRedemptionDate,Date to which the yield has been calculated
+697,YieldRedemptionPrice,Price to which the yield has been calculated
+1100,TriggetType,Defines when the trigget will hit the action specified by the trigger instructions will come into effect
+1101,TriggerAction,Defines the type of action to take when the trigger hits
+1107,TriggerPriceType,The type of price that the trigger is compared to.
+33,NoLineOfText,Specifies the number of repeating lines of text
+354,EncodedTextLen,Must be set if EncodedText Field is specified and must immediately preced it
+355,EncodedText,Encoded representation of the text field in the encoded format
+916,StartDate,Settlement date of the beginning of deal
+917,EndDate,Repayment / repurchase date
+311,UnderlyingSymbol,Underlying security symbol - see tag 55
+763,UnderLyingSecuritySubType,Underlying security's SecuritySubType see tag 762
+310,UnderlyingSecurityType,Underlying security's SecuritySubType see tag 167
+879,UnderlyingQty,Unit amount of the underlying security
+810,UnderlyingPx,Underlying Price
+232,NoStipulations,Specifies the number of repeating stipulations
+233,StipulationType,Required if NoStipulations > 0
+569,TradeRequestType,Type of trade capture report
+980,SecurityUpdateAction,Specifies the update action for the security
